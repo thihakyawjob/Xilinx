@@ -11,7 +11,7 @@ Create a Vivado Project and export bitstream
 4. cd vivado_pjt.sdk
 5. petalinux-config --get-hw-description -p ../software/
    
-    ![Petalinux](/home/thihakyaw/Pictures/petalinux1.png)
+    ![Petalinux](https://github.com/thihakyawjob/Xilinx/blob/master/images/petalinux1.png)
 6. Set the following settings
    * Subsystem AUTO Hardware Settings --> Advanced bootable images storage settings --> boot image settings --> primary sd
    * Subsystem AUTO Hardware Settings --> Advanced bootable images storage settings --> kernel image settings --> primary sd
