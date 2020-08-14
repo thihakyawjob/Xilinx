@@ -28,4 +28,13 @@ Create a Vivado Project and export bitstream
   12. Change Directory image -> linux
    *  cd images/linux/
    *  petalinux-package --boot --fsbl zynq_fsbl.elf --fpga ../../../**pjt**.runs/impl_1/**pjt**_wrapper.bit --uboot
+  
+## To update petalinux image after making change in hardware
+* petalinux-config --get-hw-description=**path-to-directory-containing-hardware description-file**
+  
+## To Clear the build
+   * petalinux-build -x distclean
+   * petalinux-build -x mrproper
+
+
 
