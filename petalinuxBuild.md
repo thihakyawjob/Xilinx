@@ -8,21 +8,20 @@ Create a Vivado Project and export bitstream
    
     petalinux-create -t project -n software --template zynq
 
-4. cd vivado_pjt.sdk
-5. petalinux-config --get-hw-description -p ../software/
+4. petalinux-config --get-hw-description ../vivado_pjt.sdk/
    
     ![Petalinux](https://github.com/thihakyawjob/Xilinx/blob/master/images/petalinux1.png)
-6. Set the following settings
+5. Set the following settings
    * Subsystem AUTO Hardware Settings --> Advanced bootable images storage settings --> boot image settings --> primary sd
    * Subsystem AUTO Hardware Settings --> Advanced bootable images storage settings --> kernel image settings --> primary sd
    * save
-  7. Change directory to software (cd ../software/)
-  8. petalinux-config
+  1. Change directory to software (cd ../software/)
+  2. petalinux-config
    * Firmware Version Configuration --> Host name, Product name and Firmware Version
    * save
-  9. petalinux-config -c kernel
+  3. petalinux-config -c kernel
    * Device Drivers --> GPIO Support
-  10. petalinux-config -c rootfs  
+  4.  petalinux-config -c rootfs  
    * apps --> gpio-demo
   11. petalinux-build
   12. Change Directory image -> linux
@@ -36,5 +35,8 @@ Create a Vivado Project and export bitstream
    * petalinux-build -x distclean
    * petalinux-build -x mrproper
 
-
+# Petalinux  Creating a new module
+1. Create a module in petalinux
+   * petalinux-create -t modules --name dma-proxy --enable
+   * 
 
