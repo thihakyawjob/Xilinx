@@ -38,5 +38,8 @@ Create a Vivado Project and export bitstream
 # Petalinux  Creating a new module
 1. Create a module in petalinux
    * petalinux-create -t modules --name dma-proxy --enable
-   * 
+   * copy "dma-proxy.c" and "dma-proxy.h" into ../software/project-spec/meta-user/recipes-modules/dma-proxy/files/.
+   * add "dma-proxy.h" in "dma-proxy.bb" (see the file)
+   * Modify the device tree file, "system-user.dtsi" inside ../software/project-spec/meta-user/recipes-bsp/device-tree/files.
+   * Build the petalinux Image again
 
