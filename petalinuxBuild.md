@@ -42,4 +42,8 @@ Create a Vivado Project and export bitstream
    * add "dma-proxy.h" in "dma-proxy.bb" (see the file)
    * Modify the device tree file, "system-user.dtsi" inside ../software/project-spec/meta-user/recipes-bsp/device-tree/files.
    * Build the petalinux Image again
+   * Boot the system
+   * cd /lib/modules/4.19.0-xilinx-v2019.1/extra/
+   * modprobe module
+
 
