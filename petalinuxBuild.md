@@ -7,6 +7,7 @@ Create a Vivado Project and export bitstream
 3. Type the following commands and software folder is created.
    
     petalinux-create -t project -n software --template zynq
+    cd software/
 
 4. petalinux-config --get-hw-description ../vivado_pjt.sdk/
    
@@ -46,4 +47,6 @@ Create a Vivado Project and export bitstream
    * cd /lib/modules/4.19.0-xilinx-v2019.1/extra/
    * modprobe module
 
+## Reference Links
+https://forums.xilinx.com/t5/Embedded-Linux/AXI-DMA-Drivers-for-Kernel-v-4-9-PetaLinux-2017-3/td-p/828917
 
