@@ -7,6 +7,7 @@ Create a Vivado Project and export bitstream
 3. Type the following commands and software folder is created.
    
     petalinux-create -t project -n software --template zynq
+    
     cd software/
 
 4. petalinux-config --get-hw-description ../vivado_pjt.sdk/
