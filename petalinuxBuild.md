@@ -50,5 +50,19 @@ Create a Vivado Project and export bitstream
 The source code can be downloaded from github link.
 ## Reference Links
 https://github.com/thihakyawjob/Xilinx/tree/master/dma-proxy_Pynqz1
+
 https://forums.xilinx.com/t5/Embedded-Linux/AXI-DMA-Drivers-for-Kernel-v-4-9-PetaLinux-2017-3/td-p/828917
+
+## NFS Server Installation
+* sudo apt-get install nfs-kernel-server
+* sudo gedit /etc/exports
+   - /home/usr/nfs *(rw,sync,no_root_squash,no_subtree_check)
+*sudo /etc/init.d/rpcbind restart
+* sudo /etc/init.d/nfs-kernel-server restart
+
+On Zynq Device
+
+* mount -t nfs -o nolock 192.168.0.101:/home/usr/nfs  /mnt
+
+
 
