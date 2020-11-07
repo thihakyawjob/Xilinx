@@ -1,4 +1,5 @@
 # Xilinx DMA Test with Scatter Gathering
+BOARD: PYNQ-Z1
 ## AXI DMA Block Setting
 ![Petalinux](https://github.com/thihakyawjob/Xilinx/blob/master/images/sg_dma_test_DMASettings.png)
 
@@ -11,7 +12,7 @@ File location: ../project-spec/meta-user/recipes-bsp/device-tree/files/
 
 /include/ "system-conf.dtsi"
 / {
-    
+
 	axidmatest_0: axidmatest {
 
 		compatible ="xlnx,axi-dma-test-1.00.a";
