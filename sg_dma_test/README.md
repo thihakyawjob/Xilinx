@@ -11,10 +11,17 @@ File location: ../project-spec/meta-user/recipes-bsp/device-tree/files/
 
 /include/ "system-conf.dtsi"
 / {
+    
 	axidmatest_0: axidmatest {
+
 		compatible ="xlnx,axi-dma-test-1.00.a";
+
 		dmas = <&axi_dma_0 0
+
 		&axi_dma_0 1>;
+
 		dma-names = "axidma0", "axidma1";
+
 	} ;
+
 };
