@@ -26,3 +26,14 @@ File location: ../project-spec/meta-user/recipes-bsp/device-tree/files/
 	} ;
 
 };
+
+## Petalinux Kernel DMA Engine Test Result
+![Petalinux](https://github.com/thihakyawjob/Xilinx/blob/master/images/sgdmaresult.png)
+
+## Petalinux DMA Test as Module
+
+The menuconfig contains an option that could be found by following path:
+
+	Device Drivers -> DMA Engine support -> DMA Test client
+
+![Petalinux](https://github.com/thihakyawjob/Xilinx/blob/master/images/sgdmaresult1.png)
