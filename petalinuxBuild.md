@@ -6,11 +6,11 @@ Create a Vivado Project and export bitstream
 2. Right Click "open in Terminal"
 3. Type the following commands and software folder is created.
    
-    petalinux-create -t project -n software --template zynq
+    $petalinux-create -t project -n software --template zynq
     
-    cd software/
+    $cd software/
 
-4. petalinux-config --get-hw-description ../vivado_pjt.sdk/
+4. $petalinux-config --get-hw-description ../vivado_pjt.sdk/
    
     ![Petalinux](https://github.com/thihakyawjob/Xilinx/blob/master/images/petalinux1.png)
 5. Set the following settings
@@ -25,29 +25,37 @@ Create a Vivado Project and export bitstream
    * Device Drivers --> GPIO Support
   4.  petalinux-config -c rootfs  
    * apps --> gpio-demo
-  11. petalinux-build
+  11. $petalinux-build
   12. Change Directory image -> linux
-   *  cd images/linux/
-   *  petalinux-package --boot --fsbl zynq_fsbl.elf --fpga ../../../**pjt**.runs/impl_1/**pjt**_wrapper.bit --uboot
+   *  $cd images/linux/
+   *  $petalinux-package --boot --fsbl zynq_fsbl.elf --fpga ../../../**pjt**.runs/impl_1/**pjt**_wrapper.bit --uboot
   
 ## To update petalinux image after making change in hardware
-* petalinux-config --get-hw-description=**path-to-directory-containing-hardware description-file**
+  $petalinux-config --get-hw-description=**path-to-directory-containing-hardware description-file**
   
 ## To Clear the build
-   * petalinux-build -x distclean
-   * petalinux-build -x mrproper
+   * $petalinux-build -x distclean
+   * $petalinux-build -x mrproper
 
 # Petalinux  Creating a new module
 1. Create a module in petalinux
-   * petalinux-create -t modules --name dma-proxy --enable
+   * $petalinux-create -t modules --name dma-proxy --enable
    * copy "dma-proxy.c" and "dma-proxy.h" into ../software/project-spec/meta-user/recipes-modules/dma-proxy/files/.
    * add "dma-proxy.h" in "dma-proxy.bb" (see the file)
    * Modify the device tree file, "system-user.dtsi" inside ../software/project-spec/meta-user/recipes-bsp/device-tree/files.
    * Build the petalinux Image again
    * Boot the system
-   * cd /lib/modules/4.19.0-xilinx-v2019.1/extra/
-   * modprobe module
+   * $cd /lib/modules/4.19.0-xilinx-v2019.1/extra/
+   * $modprobe module
 The source code can be downloaded from github link.
+
+# Petalinux - Include Prebuild Application
+$petalinux-create -t apps --template install --name myapp --enable
+$cd project-spec/meta-user/recipes-apps/myapp/files/
+$rm myapp
+$cp mynewapp //remove .elf extension
+
+
 ## Reference Links
 https://github.com/thihakyawjob/Xilinx/tree/master/dma-proxy_Pynqz1
 
