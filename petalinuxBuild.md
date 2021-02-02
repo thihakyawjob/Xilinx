@@ -72,5 +72,14 @@ On Zynq Device
 
 * mount -t nfs -o nolock 192.168.0.101:/home/usr/nfs  /mnt
 
+## Configuring SD Card ext File System Boot
+  
+* cd <plnx-proj-root>
+* petalinux-config
+* Select **Image Parkaging Configuration -> Root filesystem type**
+* Select **SD card** as the RootFS type
+* petalinux-build
+* copy BOOT.BIN and image.ub to BOOT folder
+* sudo tar xvf rootfs.tar.gz -C /media/username/RootFS/
 
-
+ ![SDCardConfig](https://github.com/thihakyawjob/Xilinx/blob/master/images/sdcardconfig.png)
