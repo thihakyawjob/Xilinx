@@ -1,0 +1,5 @@
+<annotationInfo>
+<item  id="10" filename="pjt_hlsIBUFDS/src/counter.cpp" linenumber="10" name="add_ln10" contextFuncName="count_toggle" moduleName="count_toggle" rtlName="add_ln10_fu_49_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="/home/twinborn/Documents/GitHub/Xilinx/vivado_hls/HLS_IBUFDS"><\/item>
+<item  id="12" filename="pjt_hlsIBUFDS/src/counter.cpp" linenumber="11" name="icmp_ln11" contextFuncName="count_toggle" moduleName="count_toggle" rtlName="icmp_ln11_fu_61_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="/home/twinborn/Documents/GitHub/Xilinx/vivado_hls/HLS_IBUFDS"><\/item>
+<item  id="16" filename="pjt_hlsIBUFDS/src/counter.cpp" linenumber="13" name="xor_ln13" contextFuncName="count_toggle" moduleName="count_toggle" rtlName="xor_ln13_fu_72_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="2" fileDirectory="/home/twinborn/Documents/GitHub/Xilinx/vivado_hls/HLS_IBUFDS"><\/item>
+</annotationInfo>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="count_toggle" xd:componentRef="count_toggle" xd:initiationInterval="1" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="toggle" xd:originalName="toggle" xd:direction="out" xd:interfaceRef="toggle" xd:busTypeRef="register" xd:handshakeRef="ap_vld" xd:dataWidth="1" xd:firstOut="0"/>
+  <xd:latencyEstimates xd:best-case="0" xd:worst-case="0" xd:average-case="0"/>
+  <xd:resourceEstimates xd:LUT="74" xd:FF="34" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

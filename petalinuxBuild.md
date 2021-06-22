@@ -37,6 +37,9 @@ Create a Vivado Project and export bitstream
    * $petalinux-build -x distclean
    * $petalinux-build -x mrproper
 
+# Petalinux  Creating a new application
+$petalinux-create -t apps --template c --name myapp --enable
+
 # Petalinux  Creating a new module
 1. Create a module in petalinux
    * $petalinux-create -t modules --name dma-proxy --enable

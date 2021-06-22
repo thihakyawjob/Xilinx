@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'toggle_max' is power-on initialization." projectName="pjt_hlsIBUFDS" solutionName="solution1" date="2021-04-30T21:20:11.389+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'count' is power-on initialization." projectName="pjt_hlsIBUFDS" solutionName="solution1" date="2021-04-30T21:20:11.371+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-484] The 'config_sdx -optimization_level' command is deprecated and will be removed in a future release." projectName="pjt_hlsIBUFDS" solutionName="solution1" date="2021-04-30T21:20:02.386+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-483] The 'config_sdx -optimization_level' command is deprecated and will be removed in a future release. Use 'config_export -vivado_optimization_level' as its replacement." projectName="pjt_hlsIBUFDS" solutionName="solution1" date="2021-04-30T21:20:02.362+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

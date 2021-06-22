@@ -1,0 +1,492 @@
+
+
+================================================================
+== Vivado HLS Report for 'count_toggle'
+================================================================
+* Date:           Fri Apr 30 21:20:11 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        pjt_hlsIBUFDS
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.794 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 0
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 6.79>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %toggle) nounwind, !map !7"   --->   Operation 2 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @count_toggle_str) nounwind"   --->   Operation 3 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [pjt_hlsIBUFDS/src/counter.cpp:6]   --->   Operation 4 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%count_load = load i32* @count, align 4" [pjt_hlsIBUFDS/src/counter.cpp:10]   --->   Operation 5 'load' 'count_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (2.55ns)   --->   "%add_ln10 = add nsw i32 %count_load, 1" [pjt_hlsIBUFDS/src/counter.cpp:10]   --->   Operation 6 'add' 'add_ln10' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "store i32 %add_ln10, i32* @count, align 4" [pjt_hlsIBUFDS/src/counter.cpp:10]   --->   Operation 7 'store' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (2.47ns)   --->   "%icmp_ln11 = icmp eq i32 %add_ln10, -1" [pjt_hlsIBUFDS/src/counter.cpp:11]   --->   Operation 8 'icmp' 'icmp_ln11' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%toggle_max_load = load i1* @toggle_max, align 1" [pjt_hlsIBUFDS/src/counter.cpp:13]   --->   Operation 9 'load' 'toggle_max_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.76ns)   --->   "br i1 %icmp_ln11, label %1, label %._crit_edge" [pjt_hlsIBUFDS/src/counter.cpp:11]   --->   Operation 10 'br' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 11 [1/1] (0.97ns)   --->   "%xor_ln13 = xor i1 %toggle_max_load, true" [pjt_hlsIBUFDS/src/counter.cpp:13]   --->   Operation 11 'xor' 'xor_ln13' <Predicate = (icmp_ln11)> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "store i1 %xor_ln13, i1* @toggle_max, align 1" [pjt_hlsIBUFDS/src/counter.cpp:13]   --->   Operation 12 'store' <Predicate = (icmp_ln11)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (1.76ns)   --->   "br label %._crit_edge" [pjt_hlsIBUFDS/src/counter.cpp:14]   --->   Operation 13 'br' <Predicate = (icmp_ln11)> <Delay = 1.76>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%toggle_max_loc_0 = phi i1 [ %xor_ln13, %1 ], [ %toggle_max_load, %0 ]" [pjt_hlsIBUFDS/src/counter.cpp:13]   --->   Operation 14 'phi' 'toggle_max_loc_0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i1P(i1* %toggle, i1 %toggle_max_loc_0) nounwind" [pjt_hlsIBUFDS/src/counter.cpp:15]   --->   Operation 15 'write' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "ret void" [pjt_hlsIBUFDS/src/counter.cpp:16]   --->   Operation 16 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 1
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_none:ce=0
+Port [ toggle]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
+Port [ count]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ toggle_max]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+specbitsmap_ln0   (specbitsmap  ) [ 00]
+spectopmodule_ln0 (spectopmodule) [ 00]
+specinterface_ln6 (specinterface) [ 00]
+count_load        (load         ) [ 00]
+add_ln10          (add          ) [ 00]
+store_ln10        (store        ) [ 00]
+icmp_ln11         (icmp         ) [ 01]
+toggle_max_load   (load         ) [ 00]
+br_ln11           (br           ) [ 00]
+xor_ln13          (xor          ) [ 00]
+store_ln13        (store        ) [ 00]
+br_ln14           (br           ) [ 00]
+toggle_max_loc_0  (phi          ) [ 00]
+write_ln15        (write        ) [ 00]
+ret_ln16          (ret          ) [ 00]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="toggle">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="toggle"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="count">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="count"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="toggle_max">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="toggle_max"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1001" name="const_6">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1001" name="const_8">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="count_toggle_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_auto.i1P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1004" name="write_ln15_write_fu_28">
+<pin_list>
+<pin id="29" dir="0" index="0" bw="0" slack="0"/>
+<pin id="30" dir="0" index="1" bw="1" slack="0"/>
+<pin id="31" dir="0" index="2" bw="1" slack="0"/>
+<pin id="32" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln15/1 "/>
+</bind>
+</comp>
+
+<comp id="35" class="1005" name="toggle_max_loc_0_reg_35">
+<pin_list>
+<pin id="36" dir="0" index="0" bw="1" slack="2147483647"/>
+<pin id="37" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="toggle_max_loc_0 (phireg) "/>
+</bind>
+</comp>
+
+<comp id="38" class="1004" name="toggle_max_loc_0_phi_fu_38">
+<pin_list>
+<pin id="39" dir="0" index="0" bw="1" slack="0"/>
+<pin id="40" dir="0" index="1" bw="0" slack="2147483647"/>
+<pin id="41" dir="0" index="2" bw="1" slack="0"/>
+<pin id="42" dir="0" index="3" bw="0" slack="2147483647"/>
+<pin id="43" dir="1" index="4" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="phi(47) " fcode="phi"/>
+<opset="toggle_max_loc_0/1 "/>
+</bind>
+</comp>
+
+<comp id="45" class="1004" name="count_load_load_fu_45">
+<pin_list>
+<pin id="46" dir="0" index="0" bw="32" slack="0"/>
+<pin id="47" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="count_load/1 "/>
+</bind>
+</comp>
+
+<comp id="49" class="1004" name="add_ln10_fu_49">
+<pin_list>
+<pin id="50" dir="0" index="0" bw="32" slack="0"/>
+<pin id="51" dir="0" index="1" bw="1" slack="0"/>
+<pin id="52" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln10/1 "/>
+</bind>
+</comp>
+
+<comp id="55" class="1004" name="store_ln10_store_fu_55">
+<pin_list>
+<pin id="56" dir="0" index="0" bw="32" slack="0"/>
+<pin id="57" dir="0" index="1" bw="32" slack="0"/>
+<pin id="58" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln10/1 "/>
+</bind>
+</comp>
+
+<comp id="61" class="1004" name="icmp_ln11_fu_61">
+<pin_list>
+<pin id="62" dir="0" index="0" bw="32" slack="0"/>
+<pin id="63" dir="0" index="1" bw="1" slack="0"/>
+<pin id="64" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln11/1 "/>
+</bind>
+</comp>
+
+<comp id="67" class="1004" name="toggle_max_load_load_fu_67">
+<pin_list>
+<pin id="68" dir="0" index="0" bw="1" slack="0"/>
+<pin id="69" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="toggle_max_load/1 "/>
+</bind>
+</comp>
+
+<comp id="72" class="1004" name="xor_ln13_fu_72">
+<pin_list>
+<pin id="73" dir="0" index="0" bw="1" slack="0"/>
+<pin id="74" dir="0" index="1" bw="1" slack="0"/>
+<pin id="75" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="xor(25) " fcode="xor"/>
+<opset="xor_ln13/1 "/>
+</bind>
+</comp>
+
+<comp id="79" class="1004" name="store_ln13_store_fu_79">
+<pin_list>
+<pin id="80" dir="0" index="0" bw="1" slack="0"/>
+<pin id="81" dir="0" index="1" bw="1" slack="0"/>
+<pin id="82" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln13/1 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="33"><net_src comp="26" pin="0"/><net_sink comp="28" pin=0"/></net>
+
+<net id="34"><net_src comp="0" pin="0"/><net_sink comp="28" pin=1"/></net>
+
+<net id="44"><net_src comp="38" pin="4"/><net_sink comp="28" pin=2"/></net>
+
+<net id="48"><net_src comp="2" pin="0"/><net_sink comp="45" pin=0"/></net>
+
+<net id="53"><net_src comp="45" pin="1"/><net_sink comp="49" pin=0"/></net>
+
+<net id="54"><net_src comp="20" pin="0"/><net_sink comp="49" pin=1"/></net>
+
+<net id="59"><net_src comp="49" pin="2"/><net_sink comp="55" pin=0"/></net>
+
+<net id="60"><net_src comp="2" pin="0"/><net_sink comp="55" pin=1"/></net>
+
+<net id="65"><net_src comp="49" pin="2"/><net_sink comp="61" pin=0"/></net>
+
+<net id="66"><net_src comp="22" pin="0"/><net_sink comp="61" pin=1"/></net>
+
+<net id="70"><net_src comp="4" pin="0"/><net_sink comp="67" pin=0"/></net>
+
+<net id="71"><net_src comp="67" pin="1"/><net_sink comp="38" pin=2"/></net>
+
+<net id="76"><net_src comp="67" pin="1"/><net_sink comp="72" pin=0"/></net>
+
+<net id="77"><net_src comp="24" pin="0"/><net_sink comp="72" pin=1"/></net>
+
+<net id="78"><net_src comp="72" pin="2"/><net_sink comp="38" pin=0"/></net>
+
+<net id="83"><net_src comp="72" pin="2"/><net_sink comp="79" pin=0"/></net>
+
+<net id="84"><net_src comp="4" pin="0"/><net_sink comp="79" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: toggle | {1 }
+	Port: count | {1 }
+	Port: toggle_max | {1 }
+ - Input state : 
+	Port: count_toggle : count | {1 }
+	Port: count_toggle : toggle_max | {1 }
+  - Chain level:
+	State 1
+		add_ln10 : 1
+		store_ln10 : 2
+		icmp_ln11 : 2
+		br_ln11 : 3
+		xor_ln13 : 1
+		store_ln13 : 1
+		toggle_max_loc_0 : 4
+		write_ln15 : 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|------------------------|---------|---------|
+| Operation|     Functional Unit    |    FF   |   LUT   |
+|----------|------------------------|---------|---------|
+|    add   |     add_ln10_fu_49     |    0    |    39   |
+|----------|------------------------|---------|---------|
+|   icmp   |     icmp_ln11_fu_61    |    0    |    18   |
+|----------|------------------------|---------|---------|
+|    xor   |     xor_ln13_fu_72     |    0    |    2    |
+|----------|------------------------|---------|---------|
+|   write  | write_ln15_write_fu_28 |    0    |    0    |
+|----------|------------------------|---------|---------|
+|   Total  |                        |    0    |    59   |
+|----------|------------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++-----------------------+--------+
+|                       |   FF   |
++-----------------------+--------+
+|toggle_max_loc_0_reg_35|    1   |
++-----------------------+--------+
+|         Total         |    1   |
++-----------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------|------|------|------|--------|
+|  Comp  |  Pin | Size |  BW  | S x BW |
+|--------|------|------|------|--------|
+|  Total |      |      |      |    0   |
+|--------|------|------|------|--------|
+
+
+
+* Summary:
++-----------+--------+--------+
+|           |   FF   |   LUT  |
++-----------+--------+--------+
+|  Function |    0   |   59   |
+|   Memory  |    -   |    -   |
+|Multiplexer|    -   |    -   |
+|  Register |    1   |    -   |
++-----------+--------+--------+
+|   Total   |    1   |   59   |
++-----------+--------+--------+

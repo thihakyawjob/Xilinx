@@ -1,0 +1,10 @@
+create_clock -name clk_p -period 8 [get_ports clk_p]
+set_property LOC G21 [get_ports clk_p]
+set_property LOC AN14 [get_ports ap_rst]
+set_property LOC AG14 [get_ports toggle]
+set_property LOC AF13 [get_ports toggle_ap_vld]
+
+set_property IOSTANDARD LVCMOS18 [get_ports ap_rst]
+set_property IOSTANDARD LVCMOS18 [get_ports toggle]
+set_property IOSTANDARD LVCMOS18 [get_ports toggle_ap_vld]
+set_property IOSTANDARD DIFF_HSTL_I_18 [get_ports clk_p]
