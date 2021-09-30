@@ -68,7 +68,7 @@ https://forums.xilinx.com/t5/Embedded-Linux/AXI-DMA-Drivers-for-Kernel-v-4-9-Pet
 * sudo apt-get install nfs-kernel-server
 * sudo gedit /etc/exports
    - /home/usr/nfs *(rw,sync,no_root_squash,no_subtree_check)
-*sudo /etc/init.d/rpcbind restart
+* sudo /etc/init.d/rpcbind restart
 * sudo /etc/init.d/nfs-kernel-server restart
 
 On Zynq Device
